@@ -1,0 +1,249 @@
+/* General Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #e9effd, #cfe0f8);
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Card Container */
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Header */
+h2 {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+/* Disclaimer */
+.disclaimer {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Input Fields */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f9f9f9;
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: #007bff;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #0056b3;
+  transform: scale(1.03);
+}
+
+/* Timer Display */
+#timer {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+/* Options Styling */
+.option-btn {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f0f8ff;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.option-btn:hover {
+  background: #d3eaff;
+  transform: scale(1.02);
+}
+
+/* Results Section */
+.results p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.results #totalScore {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+.results #severity {
+  font-size: 1.2rem;
+  color: #dc3545;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Position Next Button */
+#nextQuestion {
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card {
+    width: 95%;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  input,
+  .btn,
+  .option-btn {
+    font-size: 0.9rem;
+  }
+}
+/* Dropdown Styling */
+select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f9f9f9;
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+  appearance: none;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+  border: 1px solid #007bff;
+  background: #e6f4ff;
+}
+.evaluation-buttons {
+  margin-top: 20px;
+}
+
+.yes-no-btn {
+  display: inline-block;
+  margin: 10px 10px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.yes-no-btn:hover {
+  background: #0056b3;
+  transform: scale(1.03);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #e9effd, #cfe0f8); /* Light gradient */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('oki.webp'); /* Replace with your image path */
+  background-size: cover; /* Ensure the image covers the screen */
+  background-position: center; /* Center the image */
+  background-attachment: fixed; /* Ensure it stays in place */
+}
+
+
+
+/* Card Style */
+.card {
+  background: rgba(255, 255, 255, 0.6); /* Light white with 60% transparency */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Softer shadow for elevation */
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+  backdrop-filter: blur(10px); /* Glass effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari compatibility */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border for clarity */
+}
+
+/* Timer Display */
+#timer {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #28a745; /* Green color */
+  margin-bottom: 20px;
+}
+
+#timeLeft {
+  color: #dc3545; /* Red color */
+}
+
+.blur-note {
+  font-size: 0.9rem; /* Slightly smaller text */
+  color: #888; /* Light gray color */
+  opacity: 0.8; /* Slightly transparent */
+  margin-left: 5px; /* Add spacing to separate it from the main text */
+}
+

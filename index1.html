@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Mental Exam</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Registration Page -->
+  <div class="registration card">
+    <h2>🧠 Dementia Tracker</h2>
+    <p class="disclaimer">
+      <strong>Disclaimer:</strong> This tool is for informational purposes only and does not substitute professional medical advice.
+    </p>
+    <label for="adminName">Enter Name:</label>
+    <input type="text" id="adminName" placeholder="Name" required />
+
+    <label for="relationship">What is your relationship with the patient?</label>
+    <select id="relationship" required>
+      <option value="" disabled selected>Select Relationship</option>
+      <option value="Parent">Parent</option>
+      <option value="Child">Child</option>
+      <option value="Spouse">Spouse</option>
+      <option value="Sibling">Sibling</option>
+      <option value="Friend">Friend</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <button id="startRegistration" class="btn">Start Test</button>
+  </div>
+
+  <!-- Assessment Page -->
+  <div class="assessment card" style="display: none;">
+    <header>
+      <h2>🧠 Dementia Tracker</h2>
+      <p id="timer">⏳ Time Left: <span id="timeLeft">15</span> seconds</p>
+    </header>
+    <div id="questionContainer"></div>
+    <button id="nextQuestion" class="btn" style="display: none;">Next</button>
+  </div>
+
+  <!-- Results Page -->
+  <div class="results card" style="display: none;">
+    <h2>Results</h2>
+    <p id="totalScore"></p>
+    <p id="severity"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

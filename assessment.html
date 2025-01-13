@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Mental Exam - Assessment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="assessment card">
+    <header>
+      <h2>🧠 Mini Mental Exam</h2>
+      <p id="timer">⏳ Time Left: <span id="timeLeft">15</span> seconds</p>
+    </header>
+    <div id="questionContainer"></div>
+    <button id="nextQuestion" class="btn">Next</button>
+  </div>
+  <script src="questions.js"></script>
+  <script>
+    const questions = [
+      { text: "What year is this?", options: ["2022", "2023", "2024", "2025"], correct: 2, points: 1, time: 15 },
+      { text: "What season is this?", options: ["Winter", "Spring", "Summer", "Fall"], correct: 1, points: 1, time: 15 },
+      { text: "Spell the word WORLD. Now spell it backwards.", task: "text-input", points: 3, time: 30 },
+      { text: "What were the three objects I asked you to remember?", task: "text-input", points: 3, time: 15 },
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let timer;
+
+    const questionContainer = document.getElementById("questionContainer");
+    const nextButton = document.getElementById("nextQuestion");
+    const timerDisplay = document.getElementById("timeLeft");
+
+    function loadQuestion(index) {
+      clearInterval(timer);
+      const question = questions[index];
+      if (question.task === "text-input") {
+        questionContainer.innerHTML = `
+          <h3>${question.text}</h3>
+          <input type="text" id="userInput" placeholder="Your answer" />
+        `;
+      } else {
+        questionContainer.innerHTML = `
+          <h3>${question.text}</h3>
+          ${question.options
+            .map(
+              (option, idx) =>
+                `<button class="option-btn" onclick="selectOption(${idx}, ${question.correct})">${option}</button>`
+            )
+            .join("")}
+        `;
+      }
+
+      startTimer(question.time);
+    }
+
+    function startTimer(duration) {
+      let timeLeft = duration;
+      timerDisplay.textContent = timeLeft;
+
+      timer = setInterval(() => {
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          nextButton.style.display = "block";
+        } else {
+          timeLeft--;
+          timerDisplay.textContent = timeLeft;
+        }
+      }, 1000);
+    }
+
+    function selectOption(selectedIndex, correctIndex) {
+      if (selectedIndex === correctIndex) {
+        score += questions[currentQuestionIndex].points;
+      }
+      nextButton.style.display = "block";
+    }
+
+    nextButton.onclick = () => {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+        loadQuestion(currentQuestionIndex);
+      } else {
+        localStorage.setItem("score", score);
+        window.location.href = "results.html";
+      }
+    };
+
+    loadQuestion(currentQuestionIndex);
+  </script>
+</body>
+</html>

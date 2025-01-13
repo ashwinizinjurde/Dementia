@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Mental Exam - Results</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="results card">
+    <h2>Assessment Results</h2>
+    <p id="totalScore"></p>
+    <p id="severity"></p>
+  </div>
+  <script>
+    const score = parseInt(localStorage.getItem("score"), 10);
+    const totalScore = 30;
+    const severity = document.getElementById("severity");
+
+    document.getElementById("totalScore").textContent = `Score: ${score} / ${totalScore}`;
+
+    if (score >= 26) {
+      severity.textContent = "No signs of dementia.";
+    } else if (score >= 20) {
+      severity.textContent = "Mild cognitive impairment.";
+    } else if (score >= 10) {
+      severity.textContent = "Moderate cognitive impairment.";
+    } else {
+      severity.textContent = "Severe cognitive impairment.";
+    }
+  </script>
+</body>
+</html>
